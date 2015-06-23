@@ -1,0 +1,61 @@
+.header {
+  background-color: #666;
+  color: #fff;
+  height: 50px;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+}
+
+.clearBoth {
+	clear: both;
+}
+
+.pageContent {
+	margin-top: 30px;
+	margin-left: 10px;
+}
+
+.pageText {
+	height: 400px;
+	width: 600px;
+	float: left;
+	margin-right: 50px;
+	margin-left: 30px;
+}
+
+.footer {
+	clear: both;
+	text-align: center;
+}
+
+.searchButton {
+	float: left;
+	margin-top: 100px;
+}
+
+.pageTitle {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.pageContentText {
+	font-size: 20px;
+	color: #ccc;
+}
+
+.contactUs {
+	float: right;
+	padding-right: 20px;
+}
+
+.logo, .contactUs {
+	padding-top: 12px;
+}
+
+.logo {
+	float: left;
+	padding-left: 15px;
+}
