@@ -8,9 +8,13 @@
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('MainCtrl', function ($scope, $location) {
-    $scope.showSearchDetailsPage = function() {
-    	console.log($location);
+  .controller('MainCtrl', function ($scope, $location, $rootScope) {
+  	$rootScope.showAdvSearch = false;
+    $scope.showSearchDetailsPage = function(showAdvSearch) {
+    	$rootScope.searchText = $scope.searchText;
     	$location.url("/searchDetails");
+    	if (showAdvSearch) {
+    		$rootScope.showAdvSearch = true;
+    	}
     }
   });

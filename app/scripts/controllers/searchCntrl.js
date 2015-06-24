@@ -2,16 +2,16 @@
 
 /**
  * @ngdoc function
- * @name appApp.controller:AboutCtrl
+ * @name appApp.controller:searchCntrl
  * @description
- * # AboutCtrl
+ * # searchCntrl
  * Controller of the appApp
  */
 angular.module('appApp')
-  .controller('searchCntrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('searchCntrl', function ($scope, $rootScope) {
+     if ($rootScope.showAdvSearch) { // Show advanced search open on load.
+          $scope.isAdvSearchBlockOpen = true;
+     } else {
+          $scope.isAdvSearchBlockOpen = false;
+     }    
   });

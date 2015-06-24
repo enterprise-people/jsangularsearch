@@ -1,16 +1,26 @@
 <div class="pageContent">
   <div class="pageText">
-    <div class="pageTitle">
-      Page Title
+    <div class="leftContent">
     </div>
-    <div class="pageContentText">
-      Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content 
-      Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content Company Content
+    <div class="rightContent">
+      <div class="searchTitle">
+        Search
+      </div>
+      <div class="searchContentText">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio
+      </div>
+      <div class="searchTextBox">
+        <input type="text" placeholder="Enter your search criteria" class="form-control" ng-model="searchText">
+        <button type="button" class="btn btn-default btn-lg searchButton" ng-click="showSearchDetailsPage()">
+          <span class="glyphicon glyphicon-search"></span> SEARCH
+        </button>
+      </div>
+      <div class="clearBoth advancedSearchLink">
+        <div class="link" href="#" ng-click="showSearchDetailsPage(true)">show advanced search options</div>
+      </div>
     </div>
   </div>
-  <div class="searchButton">
-    <button type="button" class="btn btn-default btn-lg" ng-click="showSearchDetailsPage();">
-          <span class="glyphicon glyphicon-search"></span> SEARCH
-    </button>
+  <div class="searchButton" style="display:none;">
+    
   </div>
 </div>
