@@ -6,16 +6,238 @@
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio
       </div>
       <div class="searchTextBox">
-        <input type="text" placeholder="Enter your search criteria" class="form-control" ng-model="searchText">
-        <button type="button" class="btn btn-default btn-lg searchButton" ng-click="showSearchDetailsPage()">
+        <input type="text" placeholder="Enter your search criteria" ng-model="searchText" ng-class="isAdvSearchBlockOpen ? 'form-control fullWidth' : 'form-control'">
+        <button type="button" class="btn btn-default btn-lg searchButton" ng-click="getSearchResults()" ng-show="!isAdvSearchBlockOpen">
           <span class="glyphicon glyphicon-search"></span> SEARCH
         </button>
       </div>
-      <div ng-show="isAdvSearchBlockOpen">
-      	ADVANCED SEARCH BLOCK
+      <div class="clearBoth" style="height:1px;">&nbsp;</div>
+      <div ng-show="isAdvSearchBlockOpen" class="advancedSearchBlock">
+      	<div class="advTitle">
+      		Advanced Search Options
+      	</div>
+      	<div class="advancedSearchControllers">
+      		<div class="controllersBlock">
+      			<ul class="listContainer">
+      				<li class="listItem">
+      					<div class="labelText">Date Range:</div>
+      					<div class="inputController">
+      						<input class="dateText form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker size="16" type="text" dateFormat="YYYY-MM-DD" data-date-format="yyyy-MM-dd" readonly>
+      						<input class="dateText form-control" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker size="16" type="text" dateFormat="YYYY-MM-DD" readonly >
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      				<li class="listItem">
+      					<div class="labelText">Age:</div>
+      					<div class="inputController">
+      						<input class="ageText form-control" placeholder="From" size="3" type="text">
+      						<input class="ageText form-control" placeholder="To" size="3" type="text">
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      				<li class="listItem">
+      					<div class="labelText">Country:</div>
+      					<div class="inputController">
+      						<div class="dropdown">
+	    							<button class="selectDropdown btn btn-default dropdown-toggle" type="button" id="countryDrpDwn" data-toggle="dropdown">Select
+	   								<span class="caret"></span>
+								</button>
+    								<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+     								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Globally</a></li>
+     								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Country</a></li>
+    								</ul>
+  							</div>
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      				<li class="listItem">
+      					<div class="labelText">Patient Sex:</div>
+      					<div class="inputController">
+      						<div class="dropdown">
+	    							<button class="selectDropdown btn btn-default dropdown-toggle" type="button" id="countryDrpDwn" data-toggle="dropdown">Select
+	   								<span class="caret"></span>
+								</button>
+    								<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+     								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Male</a></li>
+     								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Female</a></li>
+    								</ul>
+  							</div>
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      			</ul>
+      		</div>
+      		<div class="controllersBlock">
+      			<ul class="listContainer">
+      				<li class="listItem">
+      					<div class="labelText">Manufacture Name:</div>
+      					<div class="inputController">
+      						<input type="text" class="form-control searchTextControler">
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      				<li class="listItem">
+      					<div class="labelText">
+      						Brand Name:
+      						<div class="subLabelText">(ex. Tylenol)</div>
+      					</div>
+      					<div class="inputController">
+      						<input type="text" class="form-control searchTextControler">
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      				<li class="listItem">
+      					<div class="labelText">
+      						Generic Name:
+      						<div class="subLabelText">(ex.Acetaminophen)</div>
+      					</div>
+      					<div class="inputController">
+      						<input type="text" class="form-control searchTextControler">
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      				<li class="listItem">
+      					<div class="labelText">Medical Product:</div>
+      					<div class="inputController">
+      						<input type="text" class="form-control searchTextControler">
+      					</div>
+      					<div class="clearBoth"></div>
+      				</li>
+      			</ul>
+      		</div>
+      		<div class="controllersBlock">
+      			<div class="labelText">Seriousness:</div>
+      			<div class="inputController">
+      				<div class="checkbox">
+                <label><input type="checkbox" value="">Death</label>
+              </div>
+              <div class="checkbox">
+                <label><input type="checkbox" value="">Hospitalization</label>
+              </div>
+              <div class="checkbox disabled">
+                <label><input type="checkbox" value="">Congenital Anamoli</label>
+              </div>
+              <div class="checkbox disabled">
+                <label><input type="checkbox" value="">Disabling</label>
+              </div>
+              <div class="checkbox disabled">
+                <label><input type="checkbox" value="">Life Threatening</label>
+              </div>
+      			</div>      			      			
+      		</div>
+          <div class="pDivider">&nbsp;</div>
+          <div class="controllersBlock">
+               <ul class="listContainer">
+                    <li class="listItem">
+                         <div class="labelText">
+                              Drug Indication:
+                              <div class="subLabelText">(ex. hypertension)</div>
+                         </div>
+                         <div class="inputController">
+                              <input type="text" class="form-control searchTextControler">
+                         </div>
+                         <div class="clearBoth"></div>
+                    </li>
+                    <li class="listItem">
+                         <div class="labelText">
+                              Product NDC:
+                              <div class="subLabelText">(ex. 12345-36)</div>
+                         </div>
+                         <div class="inputController">
+                              <input type="text" class="form-control searchTextControler">
+                         </div>
+                         <div class="clearBoth"></div>
+                    </li>
+                    <li class="listItem">
+                         <div class="labelText">
+                              Report ID:
+                              <div class="subLabelText">(ex.1234567-9)</div>
+                         </div>
+                         <div class="inputController">
+                              <input type="text" class="form-control searchTextControler">
+                         </div>
+                         <div class="clearBoth"></div>
+                    </li>
+               </ul>
+          </div>
+          <div class="controllersBlock">
+               <ul class="listContainer">
+                    <li class="listItem">
+                         <div class="labelText">
+                              Pharmacologic Class:
+                         </div>
+                         <div class="inputController">
+                              <input type="text" class="form-control searchTextControler">
+                         </div>
+                         <div class="clearBoth"></div>
+                    </li>
+                    <li>
+                         <div class="labelText">
+                              Individual Submitting:
+                         </div>
+                         <div class="inputController">
+                              <div class="dropdown">
+                                   <button class="selectDropdown btn btn-default dropdown-toggle" type="button" id="countryDrpDwn" data-toggle="dropdown">Select
+                                             <span class="caret"></span>
+                                   </button>
+                                   <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Option 1</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Option 2</a></li>
+                                   </ul>
+                              </div>
+                         </div>
+                    </li>
+               </ul>
+          </div>
+      	</div>
       </div>
-      <div class="clearBoth advancedSearchLink">
-        <div class="link" ng-click="isAdvSearchBlockOpen = !isAdvSearchBlockOpen" ng-show="!isAdvSearchBlockOpen">show advanced search options</div>
-        <div class="link" ng-click="isAdvSearchBlockOpen = !isAdvSearchBlockOpen" ng-show="isAdvSearchBlockOpen">hide advanced search options</div>
-      </div>
+      <div class="clearBoth">&nbsp;</div>
+     <div class="clearBoth advancedSearchLink">
+          <div class="link" ng-click="isAdvSearchBlockOpen = !isAdvSearchBlockOpen" ng-show="!isAdvSearchBlockOpen">show advanced search options</div>
+          <div class="link" ng-click="isAdvSearchBlockOpen = !isAdvSearchBlockOpen" ng-show="isAdvSearchBlockOpen">hide advanced search options</div>
+          <div class="clearBtn" ng-show="isAdvSearchBlockOpen">
+               <button ng-click="getSearchResults()" type="button" class="btn btn-default btn-lg searchButton">
+                    <span class="glyphicon glyphicon-search"></span> SEARCH
+               </button>
+               &nbsp;&nbsp;&nbsp;
+               <button type="button" class="btn btn-default btn-lg searchButton" >
+                    CLEAR
+               </button>
+          </div>
+          <div class="clearBoth">&nbsp;</div>
+     </div>
+     <div ng-show="showSearchResults" ng-init="showSearchResults = false">
+          <div class="resultTable">
+               <table class="table .table-striped">
+                    <thead>
+                         <tr>
+                              <th>Report ID</th>
+                              <th>First Received</th>
+                              <th>Country</th>
+                              <th>Submitted By</th>
+                              <th>Patient</th>
+                              <th>Patient Reaction</th>
+                         </tr>
+                    </thead>
+                    <tbody>
+                         <tr>
+                              <td>one</td>
+                              <td>two</td>
+                              <td>three</td>
+                              <td>for</td>
+                              <td>fiv</td>
+                              <td>six</td>
+                         </tr>
+                         <tr>
+                              <td>one</td>
+                              <td>two</td>
+                              <td>three</td>
+                              <td>for</td>
+                              <td>fiv</td>
+                              <td>six</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+     </div>
 </div>

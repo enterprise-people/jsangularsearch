@@ -10,6 +10,8 @@
 angular.module('appApp')
   .controller('MainCtrl', function ($scope, $location, $rootScope) {
   	$rootScope.showAdvSearch = false;
+    console.log("here it is");
+    console.log($rootScope.configData);
     $scope.showSearchDetailsPage = function(showAdvSearch) {
     	$rootScope.searchText = $scope.searchText;
     	$location.url("/searchDetails");

@@ -104,6 +104,7 @@ body {
 	margin-left: 10px;
 	color: #336699;
 	text-decoration-color: #336699;
+	float: left;
 }
 
 .advancedSearchLink {
@@ -115,7 +116,123 @@ body {
 	text-decoration-color: #336699;
 }
 
+.advancedSearchBlock {
+	background-color: #f2f2f2;
+	margin: 10px;
+	padding: 15px;
+	height: 535px;
+	clear: both;
+}
+
 .searchDetailsPage{
 	margin-top: 20px;
 	padding: 20px;
+}
+
+.advancedSearchBlock {
+	color: #666;
+}
+.advTitle {
+	font-size: 15px;
+}
+
+.advancedSearchControllers {
+	margin: 10px 0;
+}
+
+.controllersBlock {
+	width: 32%;
+	margin-right: 5px;
+	float: left;
+}
+
+.listContainer, .listItem {
+	list-style: none;
+	padding-right: 0px;
+	margin: 20px 0;
+	clear: both;
+	padding-left: 0;
+}
+.dateText {
+    width: 100px !important;
+}
+
+.dateText, .ageText {
+	float: left;
+    margin-right: 15px;
+}
+.ageText {
+	width: 80px !important;
+}
+
+.labelText {
+	float: left;
+    padding-right: 10px;
+    text-align: right;
+    width: 143px;
+    margin-top: 4px;
+}	
+
+.inputController {
+	float: left;
+}
+
+.dropdown-toggle {   
+    overflow: hidden;
+    padding-right: 24px /* Optional for caret */;
+    text-align: left;
+    text-overflow: ellipsis;    
+    width: 240px;
+}
+
+/* Optional for caret */
+.dropdown-toggle .caret {
+    position: absolute;
+    right: 12px;
+    top: calc(50% - 2px);
+}
+.selectDropdown {
+	text-align: left !important;
+}
+
+.searchTextControler {
+	width: 245px !important;
+}
+
+.subLabelText {
+	font-size: 11px;
+	color: #aaac1;
+}
+.checkBoxCntrl,
+.checkBoxText {
+	float: left;
+}
+
+.inputController ul, 
+.inputController li {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.pDivider {
+	width: 80%;
+	border-top: 1px solid #e4e4e4;
+	margin: 5px auto;
+	clear: both;
+}
+
+.clearBtn {
+	float: right;
+	padding-right: 12px;
+}
+
+.fullWidth {
+	width: 99% !important;
+}
+
+.resultTable thead,
+.resultTable th {
+	background: #666;
+	color: #fff;
 }

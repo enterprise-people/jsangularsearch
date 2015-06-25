@@ -15,6 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
+    'mgcrea.ngStrap',
     'ngTouch'
   ])
   .config(function ($routeProvider) {
@@ -30,4 +31,7 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .run(function run($rootScope) {
+    $rootScope.configData = configData;
+});
