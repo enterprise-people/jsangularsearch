@@ -154,7 +154,7 @@ body {
 	padding-left: 0;
 }
 .dateText {
-    width: 110px !important;
+    width: 100px !important;
 }
 
 .dateText, .ageText {
@@ -235,14 +235,4 @@ body {
 .resultTable th {
 	background: #666;
 	color: #fff;
-}
-.resultRow {
-	cursor: pointer;
-}
-
-#fromdate, #todate
-{
-  background-image: url(../images/calicon.png);
-  background-repeat: no-repeat;
-  background-position: right center;
 }
