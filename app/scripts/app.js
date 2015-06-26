@@ -8,14 +8,13 @@
  *
  * Main module of the application.
  */
-angular
+var appApp = angular
   .module('appApp', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'mgcrea.ngStrap',
     'ngTouch'
   ])
   .config(function ($routeProvider) {
@@ -34,4 +33,9 @@ angular
   })
   .run(function run($rootScope) {
     $rootScope.configData = configData;
-});
+  })
+ .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);

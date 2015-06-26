@@ -3,7 +3,7 @@
         Search
       </div>
       <div class="searchContentText">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar tempor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus sapien nunc eget odio
+        {{configData.pageContent}}
       </div>
       <div class="searchTextBox">
         <input type="text" placeholder="Enter your search criteria" ng-model="searchText" ng-class="isAdvSearchBlockOpen ? 'form-control fullWidth' : 'form-control'">
@@ -22,8 +22,8 @@
       				<li class="listItem">
       					<div class="labelText">Date Range:</div>
       					<div class="inputController">
-      						<input class="dateText form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker size="16" type="text" dateFormat="YYYY-MM-DD" data-date-format="yyyy-MM-dd" readonly>
-      						<input class="dateText form-control" ng-model="untilDate" data-min-date="{{fromDate}}" placeholder="Until" bs-datepicker size="16" type="text" dateFormat="YYYY-MM-DD" readonly >
+      						<input class="dateText form-control" id="fromdate" placeholder="From" size="16" type="text" readonly>
+      						<input class="dateText form-control" id="todate" placeholder="To" size="16" type="text" readonly >
       					</div>
       					<div class="clearBoth"></div>
       				</li>
@@ -42,9 +42,8 @@
 	    							<button class="selectDropdown btn btn-default dropdown-toggle" type="button" id="countryDrpDwn" data-toggle="dropdown">Select
 	   								<span class="caret"></span>
 								</button>
-    								<ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-     								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Globally</a></li>
-     								<li role="presentation"><a role="menuitem" tabindex="-1" href="#">Country</a></li>
+    								<ul  class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                             <li ng-repeat="country in configData.countryList track by $index"><a role="menuitem" tabindex="-1" href="#">{{country}}</a></li>
     								</ul>
   							</div>
       					</div>
@@ -181,8 +180,7 @@
                                              <span class="caret"></span>
                                    </button>
                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Option 1</a></li>
-                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Option 2</a></li>
+                                         <li ng-repeat="item in configData.individualSubmitting track by $index"><a role="menuitem" tabindex="-1" href="#">{{item}}</a></li>
                                    </ul>
                               </div>
                          </div>
@@ -211,6 +209,7 @@
                <table class="table .table-striped">
                     <thead>
                          <tr>
+                              <th width="5px">&nbsp;</th>
                               <th>Report ID</th>
                               <th>First Received</th>
                               <th>Country</th>
@@ -220,21 +219,19 @@
                          </tr>
                     </thead>
                     <tbody>
-                         <tr>
-                              <td>one</td>
-                              <td>two</td>
-                              <td>three</td>
-                              <td>for</td>
-                              <td>fiv</td>
-                              <td>six</td>
+                         <tr ng-init="showRow1=false" class="resultRow" ng-click="showRow1 = !showRow1">
+                              <td width="5px"><span class="caret"></span></td>
+                              <td>1234567-8</td>
+                              <td>June 10, 2012</td>
+                              <td>Japan</td>
+                              <td>Physician</td>
+                              <td>70 years / 165 lb</td>
+                              <td>Disease progression</td>
                          </tr>
-                         <tr>
-                              <td>one</td>
-                              <td>two</td>
-                              <td>three</td>
-                              <td>for</td>
-                              <td>fiv</td>
-                              <td>six</td>
+                         <tr ng-show="showRow1">
+                              <td colspan="7">
+                                   Content
+                              </td>
                          </tr>
                     </tbody>
                </table>
